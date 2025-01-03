@@ -49,7 +49,7 @@
 <body>
     <div class="content">
         <h1>Quiz Game</h1>
-        <div class="question" id="question1">Khoa có thương Phụng không (Yes or No)?</div>
+        <div class="question" id="question1">Khoa có thương Phụng không?</div>
         <div class="answers">
             <input type="text" id="answer1" placeholder="Type your answer here">
         </div>
@@ -57,7 +57,7 @@
         <div class="answers" id="answers2" style="display: none;">
             <input type="text" id="answer2" placeholder="Type your answer here">
         </div>
-        <div class="question" id="question3" style="display: none;">Khoa có đẹp trai không (Yes or No)?</div>
+        <div class="question" id="question3" style="display: none;">Khoa có đẹp trai không?</div>
         <div class="answers" id="answers3" style="display: none;">
             <input type="text" id="answer3" placeholder="Type your answer here">
             <button onclick="checkAnswers()">Submit</button>
@@ -70,32 +70,32 @@
     <script>
         function checkAnswer1() {
             const answer1 = document.getElementById('answer1').value.trim().toLowerCase();
-            if (answer1 === 'yes') {
+            if (answer1 === 'yes' || answer1 === 'y' || answer1 === 'có' || answer1 === 'co') {
                 document.getElementById('question2').style.display = 'block';
                 document.getElementById('answers2').style.display = 'block';
                 document.getElementById('answer1').disabled = true;
             } else {
-                alert('Incorrect! Try again.');
+                alert('Sai rồi! Thử lại đi bà.');
             }
         }
 
         function checkAnswer2() {
             const answer2 = document.getElementById('answer2').value.trim();
-            if (answer2 === '1') {
+            if (answer2 === '1' || answer2 === 'hộp thứ nhất' || answer2 === 'hộp 1' || answer2 === 'hộp đầu tiên' || answer2 === 'hộp đầu' || answer2 === 'hộp đầu tiên') {
                 document.getElementById('question3').style.display = 'block';
                 document.getElementById('answers3').style.display = 'block';
                 document.getElementById('answer2').disabled = true;
             } else {
-                alert('Incorrect! Try again.');
+                alert('Sai rồi! Thử lại đi bà.');
             }
         }
 
         function checkAnswers() {
             const answer3 = document.getElementById('answer3').value.trim().toLowerCase();
-            if (answer3 === 'yes') {
+            if (answer3 === 'yes' || answer3 === 'y' || answer3 === 'có' || answer3 === 'co') {
                 document.getElementById('qrCode').style.display = 'block';
             } else {
-                alert('Incorrect! Try again.');
+                alert('Sai rồi! Thử lại đi bà.');
             }
         }
 
