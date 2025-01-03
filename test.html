@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-image: url('KhoaPhung.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* This fixes the background image */
+            margin: 0;
+            overflow: hidden;
+            height: 100vh; /* This ensures the body takes up the full height of the viewport */
+        }
+        .content {
+            background-color: rgba(255, 255, 255, 0.8); /* semi-transparent white */
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 20px;
+            width: calc(100% - 40px); /* Ensures padding is accounted for */
+            box-sizing: border-box;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .answers input {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        #qrCode {
+            display: none;
+            margin-top: 20px;
+        }
+        .qr-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Quiz Game</h1>
+        <div class="question" id="question1">Khoa có thương Phụng không (Yes or No)?</div>
+        <div class="answers">
+            <input type="text" id="answer1" placeholder="Type your answer here">
+        </div>
+        <div class="question" id="question2" style="display: none;">Có ba chiếc hộp trên bàn. Một trong các hộp chứa Vàng và hai hộp còn lại trống rỗng. Mỗi hộp đều có một thông điệp được in bên trong. Một thông điệp là đúng và hai thông điệp còn lại là sai. Hộp thứ nhất nói "Vàng không có ở đây." Hộp thứ hai nói "Vàng không có ở đây." Hộp thứ ba nói "Vàng nằm trong hộp thứ hai." Vậy Vàng nằm ở hộp nào?</div>
+        <div class="answers" id="answers2" style="display: none;">
+            <input type="text" id="answer2" placeholder="Type your answer here">
+        </div>
+        <div class="question" id="question3" style="display: none;">Khoa có đẹp trai không (Yes or No)?</div>
+        <div class="answers" id="answers3" style="display: none;">
+            <input type="text" id="answer3" placeholder="Type your answer here">
+            <button onclick="checkAnswers()">Submit</button>
+        </div>
+        <div class="qr-container">
+            <img id="qrCode" src="qrcode.png" alt="QR Code">
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer1() {
+            const answer1 = document.getElementById('answer1').value.trim().toLowerCase();
+            if (answer1 === 'yes') {
+                document.getElementById('question2').style.display = 'block';
+                document.getElementById('answers2').style.display = 'block';
+                document.getElementById('answer1').disabled = true;
+            } else {
+                alert('Incorrect! Try again.');
+            }
+        }
+
+        function checkAnswer2() {
+            const answer2 = document.getElementById('answer2').value.trim();
+            if (answer2 === '1') {
+                document.getElementById('question3').style.display = 'block';
+                document.getElementById('answers3').style.display = 'block';
+                document.getElementById('answer2').disabled = true;
+            } else {
+                alert('Incorrect! Try again.');
+            }
+        }
+
+        function checkAnswers() {
+            const answer3 = document.getElementById('answer3').value.trim().toLowerCase();
+            if (answer3 === 'yes') {
+                document.getElementById('qrCode').style.display = 'block';
+            } else {
+                alert('Incorrect! Try again.');
+            }
+        }
+
+        document.getElementById('answer1').addEventListener('change', checkAnswer1);
+        document.getElementById('answer2').addEventListener('change', checkAnswer2);
+    </script>
+</body>
+</html>
