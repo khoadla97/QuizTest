@@ -37,8 +37,8 @@
         #qrCode {
             display: none;
             margin-top: 20px;
-            max-width: 80%; /* Adjust the width to fit mobile devices */ 
-            height: auto;   /* Maintain the aspect*/
+            max-width: 80%;
+            height: auto;
         }
         .qr-container {
             display: flex;
@@ -54,10 +54,12 @@
         <div class="question" id="question1">Khoa có thương Phụng không?</div>
         <div class="answers">
             <input type="text" id="answer1" placeholder="Type your answer here">
+            <button onclick="checkAnswer1()">Submit</button>
         </div>
         <div class="question" id="question2" style="display: none;">Có ba chiếc hộp trên bàn. Một trong các hộp chứa Vàng và hai hộp còn lại trống rỗng. Mỗi hộp đều có một thông điệp được in bên trong. Một thông điệp là đúng và hai thông điệp còn lại là sai. Hộp thứ nhất nói "Vàng không có ở đây." Hộp thứ hai nói "Vàng không có ở đây." Hộp thứ ba nói "Vàng nằm trong hộp thứ hai." Vậy Vàng nằm ở hộp nào?</div>
         <div class="answers" id="answers2" style="display: none;">
             <input type="text" id="answer2" placeholder="Type your answer here">
+            <button onclick="checkAnswer2()">Submit</button>
         </div>
         <div class="question" id="question3" style="display: none;">Khoa có đẹp trai không?</div>
         <div class="answers" id="answers3" style="display: none;">
@@ -76,6 +78,7 @@
                 document.getElementById('question2').style.display = 'block';
                 document.getElementById('answers2').style.display = 'block';
                 document.getElementById('answer1').disabled = true;
+                document.getElementById('answer1').nextElementSibling.disabled = true; // Disable submit button
             } else {
                 alert('Sai rồi! Thử lại đi bà.');
             }
@@ -83,10 +86,12 @@
 
         function checkAnswer2() {
             const answer2 = document.getElementById('answer2').value.trim();
-            if (answer2 === '1' || answer2 == 'hop thu 1' || answer2 === 'hộp thứ nhất' || answer2 == 'hop thu nhat' || answer2 === 'hộp 1' || answer2 === 'hộp đầu tiên' || answer2 === 'hộp đầu' || answer2 === 'hộp đầu tiên') {
+            const validAnswers = ['1', 'hop thu 1', 'hộp thứ nhất', 'hộp 1', 'hộp đầu tiên', 'hộp đầu', "Hộp thứ nhất", "Hộp 1", "Hộp đầu tiên", "Hộp đầu", "HỘP THỨ NHẤT", "HỘP 1", "HỘP ĐẦU TIÊN", "HỘP ĐẦU"];
+            if (validAnswers.includes(answer2)) {
                 document.getElementById('question3').style.display = 'block';
                 document.getElementById('answers3').style.display = 'block';
                 document.getElementById('answer2').disabled = true;
+                document.getElementById('answer2').nextElementSibling.disabled = true; // Disable submit button
             } else {
                 alert('Sai rồi! Thử lại đi bà.');
             }
