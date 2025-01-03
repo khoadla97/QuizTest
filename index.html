@@ -37,6 +37,8 @@
         #qrCode {
             display: none;
             margin-top: 20px;
+            max-width: 80%; /* Adjust the width to fit mobile devices */ 
+            height: auto;   /* Maintain the aspect*/
         }
         .qr-container {
             display: flex;
@@ -81,7 +83,7 @@
 
         function checkAnswer2() {
             const answer2 = document.getElementById('answer2').value.trim();
-            if (answer2 === '1' || answer2 === 'hộp thứ nhất' || answer2 === 'hộp 1' || answer2 === 'hộp đầu tiên' || answer2 === 'hộp đầu' || answer2 === 'hộp đầu tiên') {
+            if (answer2 === '1' || answer2 == 'hop thu 1' || answer2 === 'hộp thứ nhất' || answer2 == 'hop thu nhat' || answer2 === 'hộp 1' || answer2 === 'hộp đầu tiên' || answer2 === 'hộp đầu' || answer2 === 'hộp đầu tiên') {
                 document.getElementById('question3').style.display = 'block';
                 document.getElementById('answers3').style.display = 'block';
                 document.getElementById('answer2').disabled = true;
